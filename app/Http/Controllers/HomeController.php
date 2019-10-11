@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
+
 use App\Users;
 
 class HomeController extends Controller
@@ -73,4 +78,28 @@ class HomeController extends Controller
     }
   }
 
+  public function test_post() {
+
+    $comments = $_GET['comments'];
+
+    $pass = '720DF6C2482218518FA20FDC52D4DED7ECC043AB';
+    $id = 1;
+
+    $client = new Client();
+    
+    $response = $client->request('POST', url('/api_update_user'), ['json' => [
+        'id' => $id, 
+        'password' => $pass,
+        'comments' => $comments
+    ]]);
+
+    $statusCode = $response->getStatusCode();
+    $content = $response->getBody();
+
+    var_dump($statusCode);
+    var_dump(json_decode($response->getBody()->getContents()));
+    var_dump(json_decode($response->getBody(), true));
+
+    exit(0);
+  }
 }
