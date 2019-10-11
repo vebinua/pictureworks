@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Users;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
   }
   
   //to be placed on a separate function for a much direct/cleaner approach
-  
+
   /*$json = file_get_contents('php://input');
   if(sizeof($_POST) or $json or (isset($argv[1]) and isset($argv[2]))){
     if($json){
