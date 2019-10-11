@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Users;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-
-use App\Users;
 
 class HomeController extends Controller
 {
@@ -30,7 +28,7 @@ class HomeController extends Controller
 
     apidie('No such user (3)', 404);
   }
-  
+
   public function api_update_user() {
     $users = new Users();
 

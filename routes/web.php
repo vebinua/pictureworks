@@ -12,3 +12,7 @@
 */
 
 Route::any('/', 'HomeController@index');
+
+Route::get('/test_post', 'HomeController@test_post');
+
+Route::any('/api_update_user', 'HomeController@api_update_user');
